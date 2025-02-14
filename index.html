@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You ❤️</title>
+    <style>
+        body {
+            background-color: #ffe6e6;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            padding: 50px;
+            overflow-y: auto;
+            min-height: 100vh;
+        }
+        .container {
+            position: relative;
+            display: inline-block;
+        }
+        .envelope {
+            width: 300px;
+            height: 200px;
+            background: #ff4d4d;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: opacity 1s ease-in-out;
+        }
+        .flap {
+            width: 0;
+            height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-bottom: 100px solid #d63031;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform 1s ease-in-out;
+        }
+        .letter {
+            width: 400px;
+            min-height: 400px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            transition: transform 1.5s ease-in-out, opacity 1s ease-in-out;
+            font-size: 20px;
+            opacity: 0;
+            overflow-y: auto;
+            max-width: 80%;
+        }
+        .open-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            color: #ff4d4d;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .open-button:hover {
+            background: #ffcccc;
+        }
+        .hidden {
+            display: none;
+        }
+        h1 {
+            color: #ff4d4d;
+        }
+        p {
+            font-size: 20px;
+            color: #333;
+        }
+    </style>
+    <script>
+        function openLetter() {
+            document.querySelector('.flap').style.transform = 'rotateX(180deg)';
+            setTimeout(() => {
+                document.querySelector('.envelope').style.opacity = '0';
+                setTimeout(() => {
+                    document.querySelector('.envelope').classList.add('hidden');
+                    document.querySelector('.letter').style.transform = 'translateX(-50%) scale(1)';
+                    document.querySelector('.letter').style.opacity = '1';
+                }, 1000);
+            }, 1000);
+            document.querySelector('.open-button').classList.add('hidden');
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="envelope">
+            <div class="flap"></div>
+            <button class="open-button" onclick="openLetter()">Open Me</button>
+        </div>
+        <div class="letter">
+            <h1>For My Love ❤️</h1>
+            <p>Hi mi amor, </p>
+            <p>I don't even know how to start, and I don't know when it began to feel like home with you. The only thing I'm certain is that you are the best person I know. You have such a beautiful personality, if you don't believe me then let me describe it to you: you're brave, funny, charismatic, super duper intelligent, calm, empathetic, thoughtful, creative, ambitious (I know you'll go soo far) and sooooo adorable (like you can't imagine how easy it was to fall in love with you). Every second I get to look at you, your smile (with those cute front teeth that I love soooo much), your eyes that are literally stunning, and just you, are sooo precious and special. Every second I get to talk to you and hear your voice, your stories, your jokes, your hiccups, and every sound you make (I'm dying to hear some random noise in the middle of the night) I fall in love with you all over again. Mi amor, some days we just need to fall asleep and I see the most beautiful girl. I love and adore you ❤️</p>
+            <p>Forever yours,<br>Sofia</p>
+        </div>
+    </div>
+</body>
+</html>
